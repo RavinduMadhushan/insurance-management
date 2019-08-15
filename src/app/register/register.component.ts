@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { VirtualTimeScheduler } from "rxjs";
 import { DataService } from "../data.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-register",
@@ -9,10 +10,10 @@ import { DataService } from "../data.service";
   styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
-  constructor(private data: DataService) {}
+  constructor(private data: DataService, private router: Router) {}
   loading = false;
   error = true;
-  messege = "";
+  messege;
   fname: any;
   lname: any;
   address: any;
@@ -33,7 +34,15 @@ export class RegisterComponent implements OnInit {
       email: this.email
     };
 
-    this.data.register(registerDetails).subscribe();
+    this.data.register(registerDetails).subscribe(res => {
+      if (res["error"]) {
+        this.loading = false;
+        this.error = true;
+      } else {
+        this.loading = false;
+        this.router.navigate(["login"]);
+      }
+    });
 
     this.fname = "";
     this.lname = "";

@@ -20,14 +20,46 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto"></ul>
     <form class="form-inline my-2 my-lg-0 link">
-      <a ngbDropdown class="nav-item dropdown">
-        <div class="row">
-          <div class="col-6">
-            <a class="dropdown-item" routerLink="/register">Register</a>
-          </div>
-          <div class="col-6">
-            <a class="dropdown-item" routerLink="/login">login</a>
-          </div>
+      <a *ngIf="!auth.isLoggedIn()" ngbDropdown class="nav-item dropdown">
+        <a
+          ngbDropdownToggle
+          class="nav-link dropdown-toggle"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Login/Signup
+        </a>
+        <div
+          ngbDropdownMenu
+          class="dropdown-menu"
+          aria-labelledby="navbarDropdown"
+        >
+          <a class="dropdown-item" routerLink="/register">Register</a>
+          <a class="dropdown-item" routerLink="/login">login</a>
+        </div>
+      </a>
+      <a *ngIf="auth.isLoggedIn()" ngbDropdown class="nav-item dropdown">
+        <a
+          ngbDropdownToggle
+          class="nav-link dropdown-toggle"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          {{ auth.currentUser.fullname }}
+        </a>
+        <div
+          ngbDropdownMenu
+          class="dropdown-menu"
+          aria-labelledby="navbarDropdown"
+        >
+          <a class="dropdown-item" (click)="navigateToPortal()">My Portal</a>
+          <a class="dropdown-item" (click)="logout()">Logout</a>
         </div>
       </a>
     </form>

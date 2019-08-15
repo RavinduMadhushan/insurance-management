@@ -1,1 +1,66 @@
+<div class="container pulldown">
+  <div class="card c w-50 ">
+    <div class="card-header">
+      Login Form
+    </div>
+    <div class="card-body">
+      <div class="form-group"></div>
+      <form #fm="ngForm">
+        <div class="row">
+          <div class=" form-group col-3"></div>
+          <div *ngIf="invalidLogin" class="alert alert-danger col-6">
+            {{ message }}
+          </div>
+          <div class=" form-group col-3"></div>
+        </div>
 
+        <div class="row">
+          <div class=" form-group col-3"></div>
+          <div class="form-group col-6">
+            <label> Email</label>
+            <input
+              id="email"
+              name="email"
+              [(ngModel)]="email"
+              type="text"
+              placeholder="email"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group col-3"></div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-3"></div>
+          <div class="form-group col-6">
+            <label>Password</label>
+            <input
+              id="pwd"
+              [(ngModel)]="pwd"
+              name="pwd"
+              type="password"
+              placeholder=" Password"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group col-3"></div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-5"></div>
+          <div class="form-group col-2">
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              (click)="onSubmit()"
+            >
+              Submit
+            </button>
+          </div>
+          <div class="form-group col-5"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
