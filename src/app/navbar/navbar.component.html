@@ -3,7 +3,7 @@
   style="background-color: #3f51b5;"
 >
   <a class="navbar-brand" routerLink="/"
-    >Insurance Management <small></small
+    >Insurance Management System <small></small
   ></a>
   <button
     class="navbar-toggler"
@@ -19,7 +19,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto"></ul>
-    <form class="form-inline my-2 my-lg-0 link">
+    <form class="form-inline my-sm-0 kk link ">
       <a *ngIf="!auth.isLoggedIn()" ngbDropdown class="nav-item dropdown">
         <a
           ngbDropdownToggle
@@ -29,12 +29,13 @@
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
+          class="text-white"
         >
           Login/Signup
         </a>
         <div
           ngbDropdownMenu
-          class="dropdown-menu"
+          class="dropdown-menu "
           aria-labelledby="navbarDropdown"
         >
           <a class="dropdown-item" routerLink="/register">Register</a>

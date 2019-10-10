@@ -10,7 +10,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   signIn(data) {
-    console.log(data);
+    // console.log(data);
     return this.http.post("http://localhost:3001/api/login/user", data);
   }
   get currentUser() {

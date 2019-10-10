@@ -10,6 +10,11 @@ import { RegisterComponent } from "./register/register.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { UserPortalComponent } from "./user-portal/user-portal.component";
+import { AdminPortalComponent } from "./admin-portal/admin-portal.component";
+import { BrokerPortalComponent } from "./broker-portal/broker-portal.component";
+import { CustomerPortalComponent } from "./customer-portal/customer-portal.component";
+import { UnauthorizeComponent } from "./unauthorize/unauthorize.component";
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { UserPortalComponent } from "./user-portal/user-portal.component";
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    UserPortalComponent
+    UserPortalComponent,
+    AdminPortalComponent,
+    BrokerPortalComponent,
+    CustomerPortalComponent,
+    UnauthorizeComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule,

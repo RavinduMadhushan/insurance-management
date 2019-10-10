@@ -24,7 +24,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
   navigateToPortal() {
-    this.router.navigate(["portal"]);
+    if (this.auth.currentUser.type === "Admin") {
+      this.router.navigate(["/admin/portal"]);
+    } else if (this.auth.currentUser.type === "Customer") {
+      this.router.navigate(["/customer/portal"]);
+    } else if (this.auth.currentUser.type === "Broker") {
+      this.router.navigate(["/broker/portal"]);
+    }
   }
   onSubmit() {
     let signInDetails = {
@@ -39,7 +45,8 @@ export class LoginComponent implements OnInit {
         this.loading = false;
         let response = JSON.stringify(res);
         let token = JSON.parse(response).token;
-        console.log(token);
+        // console.log(res);
+        // console.log(token);
         localStorage.setItem("token", token);
         this.navigateToPortal();
       },
