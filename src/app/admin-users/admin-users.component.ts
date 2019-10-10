@@ -1,15 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
-import { VirtualTimeScheduler } from "rxjs";
 import { DataService } from "../data.service";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: "app-register",
-  templateUrl: "./register.component.html",
-  styleUrls: ["./register.component.css"]
+  selector: "app-admin-users",
+  templateUrl: "./admin-users.component.html",
+  styleUrls: ["./admin-users.component.css"]
 })
-export class RegisterComponent implements OnInit {
+export class AdminUsersComponent implements OnInit {
   role: any;
   constructor(private data: DataService, private router: Router) {}
   loading = false;
@@ -34,7 +32,7 @@ export class RegisterComponent implements OnInit {
       phone_num: this.phnnum,
       email: this.email,
       isActivated: false,
-      role: "Customer"
+      role: this.role
     };
 
     console.log(registerDetails);
